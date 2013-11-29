@@ -28,7 +28,8 @@ Package.on_use(function (api) {
         'lib/utils.js',
         'lib/list.js',
         'lib/subscribe.js',
-        'lib/managersubscribe.js'
+        'lib/managersubscribe.js',
+        'lib/exports.js'
     ], client);
     api.add_files([
 
@@ -41,6 +42,7 @@ Package.on_use(function (api) {
         api.export('isString', client, {testOnly: true});
         api.export('isObject', client, {testOnly: true});
         api.export('equals', client, {testOnly: true});
+        api.export('ManagerSubscribe', client);
     }
 });
 
