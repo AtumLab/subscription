@@ -1,0 +1,18 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "subscription": {
+        "git": "https://github.com/AtumLab/subscription.git",
+        "branch": "master"
+      }
+    },
+    "packages": {
+      "subscription": {
+        "git": "https://github.com/AtumLab/subscription.git",
+        "branch": "master",
+        "commit": "4c362c5b803c3dfcb951413b7e039fa6e9e58d8b"
+      }
+    }
+  }
+}

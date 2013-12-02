@@ -1,0 +1,7 @@
+{
+    "packages": {
+        "subscription": {
+            "git": "https://github.com/AtumLab/subscription.git"
+        }
+    }
+}

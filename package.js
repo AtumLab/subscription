@@ -5,7 +5,7 @@
  * Released under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
  */
-
+// meteor test-packages ./
 Package.describe({
     summary: "Subscription",
     author: "Hoang Le <particle4dev@gmail.com>"
