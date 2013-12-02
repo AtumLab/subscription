@@ -11,7 +11,7 @@
       "subscription": {
         "git": "https://github.com/AtumLab/subscription.git",
         "branch": "master",
-        "commit": "b169fe4874fe12fc0745d22e0e79ae1d9c17c701"
+        "commit": "a5ad5099d04733d2b47205142c29ea561ed0d7c6"
       }
     }
   }
