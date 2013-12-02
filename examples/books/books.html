@@ -11,8 +11,14 @@
     <h1>Hello World!</h1>
     {{greeting}}
     <input type="button" value="Click" />
+    
     {{#each books}}
         <img src="{{cover}}" alt="Smiley face" height="" width="">
     {{/each}}
 
+    <ul>
+    {{#each cakes}}
+        <li> {{ title }}</li>
+    {{/each}}
+    </ul>
 </template>

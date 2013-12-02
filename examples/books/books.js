@@ -6,12 +6,18 @@ Books.deny({
 });
 
 if (Meteor.isClient) {
+Items = new Meteor.Collection('items');
+
     Template.hello.greeting = function () {
         return "Welcome to books.";
     };
 
     Template.hello.books = function () {
         return Books.find();
+    };
+
+    Template.hello.cakes = function () {
+        return Items.find();
     };
 
     Template.hello.events({
@@ -22,8 +28,14 @@ if (Meteor.isClient) {
         }
     });
 
+    /**------------------*/
     ms = new ManagerSubscribe();
-    ms.load('books', {author: 'Douglas Crockford'}, function(){});
+    ms.load('books', {author: 'Douglas Crockford'}, function(){
+        console.log('books s');
+    });
+    ms.load('items', null, function(){
+        console.log('items s');
+    });
     ms.before = function(){
         console.log('before');
     };
@@ -37,6 +49,37 @@ if (Meteor.isClient) {
         console.log('after');
     };
     ms.run();
+
+    ms2 = new ManagerSubscribe();
+    ms2.load('items', null, function(){
+        console.log('items s 2');
+    });
+    ms2.before = function(){
+        console.log('before > 2');
+    };
+    ms2.ready(function(){
+        console.log('ready1 > 2');
+    });
+    ms2.after = function(){
+        console.log('after > 2');
+    };
+    ms2.run();
+
+    ms3 = new ManagerSubscribe();
+    ms3.load('items', null, function(){
+        console.log('items s 3');
+    });
+    ms3.before = function(){
+        console.log('before > 3');
+    };
+    ms3.ready(function(){
+        console.log('ready1 > 3');
+    });
+    ms3.after = function(){
+        console.log('after > 3');
+    };
+    ms3.run();
+
 }
 
 if (Meteor.isServer) {
@@ -94,6 +137,19 @@ Meteor.publish("books",function(id){
     if(id)
         Books.find(id);
     return Books.find({});
+});
+
+Items = [
+    { title: 'cupcake' },
+    { title: 'cakephp' },
+    { title: 'pancake' }
+]
+Meteor.publish("items",function(){
+    var self = this;
+    Items.forEach(function(cake) {
+        self.added('items', Random.id(), cake);
+    });
+    self.ready();
 });
 
 }
